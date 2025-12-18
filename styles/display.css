@@ -1,5 +1,22 @@
+body {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f172a 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Ensure all text is white by default */
+h1, h2, h3, h4, h5, h6, p, span, a, label, li {
+    color: white;
+}
+
+a:hover {
+    color: #60a5fa;
+}
+
 #detailbox{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     display: flex;
     width: 80%;
     gap: 20px;
@@ -7,6 +24,8 @@
     padding: 50px;
     margin-top: 30px;
     margin-bottom: 30px;
+    border-radius: 15px;
+    color: white;
 }
 #pricebox{
     display: flex;
@@ -15,15 +34,25 @@
     margin-top: 20px;
 }
 #pricebox>s{
-    color: #666666;
+    color: #9ca3af;
 }
 #pricebox>p{
-    color: rgb(190, 83, 33);
+    color: #60a5fa;
+    font-weight: 600;
 }
 #buttonbox>button{
     padding: 10px 20px 10px 20px;
-    background-color: rgb(255, 71, 51);
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     color: white;
     margin-right: 10px;
     border: 0px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#buttonbox>button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }

@@ -1,9 +1,22 @@
 
 
+body {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f172a 100%);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Ensure all text is white by default */
+h1, h2, h3, h4, h5, h6, p, span, a, label, li {
+    color: white;
+}
+
+a:hover {
+    color: #60a5fa;
+}
+
 #samrat_clear{
-    background-color: rgb(248,75,73);
-    
-    
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
 }
 #firstimg{
     width: 100%;
@@ -30,13 +43,17 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 #sam1{
-    background-color: rgb(248,75,73);
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+}
+#sam1>div{
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 #sam1>div>div{
-    background-color: white;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
-
+    color: white;
 }
 
 #sam1img{
@@ -46,32 +63,41 @@
 }
 #sam1name{ 
      margin: 40px 0px 0px 10px;  
-    background-color: white;
+    background: transparent;
     font-weight: bolder;
+    color: white;
 } 
 #sam1name:hover{
-    color: red;
+    color: #60a5fa;
     text-decoration: underline;
 }
 #div1{
    margin-top: 50px;
    line-height: 25px;
-    background-color: white;
-    border: 1px solid ble;
+    background: transparent;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     margin-left: 10px;
     margin-right: 5px;
     margin-bottom: -20px;
+    color: white;
 }
 #but1{
     margin: 40px 0px 0px 0px;
     padding: 2px;
     font-weight: bold;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 #sam1price{
     margin: 50px 5px 40px 50px; 
-    background-color: white;
+    background: transparent;
     text-align: left;
     font-style: italic;
+    color: #60a5fa;
+    font-weight: 600;
 }
 .samtag1{
     text-align: center;
@@ -93,46 +119,54 @@
     
 }
 #sam2>div{
-    border: 1px solid blck;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#sam2>div:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(59, 130, 246, 0.3);
 }
 #sam2img{
     height: 155px;
     width: 170px;
     margin: 10px;
-    background-color: white;
-  
-    
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 10px;
 }
 #sam2>div>div{
-    background-color: white;
+    background: transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    color: white;
 }
 #sam2name{
     margin: 5px 10px 5px 10px;  
-    background-color: white;
+    background: transparent;
     border: 10px;
     text-align: center;
-
+    color: white;
 }
 #sam2name:hover{
-    color: red;
+    color: #60a5fa;
     text-decoration: underline;
 }
 #but2{
  display: flex;
  justify-content: right;
- background-color: white;
+ background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
  margin-top: -40px;
  margin-left: 210px;
  margin-right: 10px;
- border: 1px solid red;
- background-color: red;
+ border: none;
  border-radius:20px ;
 padding: 4px;
 padding-top: 10px;
@@ -142,16 +176,21 @@ color: white;
 font-size: 12px;
 text-align: center;
 cursor: pointer;
+transition: all 0.3s ease;
+}
+
+#but2:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 #sam2price{
     margin: 30px 0px 20px 0px; 
-    background-color: white;
+    background: transparent;
     font-style: italic;
     text-align: left;
     font-weight: bolder;
     padding-left: 10px;
-  
-
+    color: #60a5fa;
 }
 #sam3{
     display: grid;
@@ -165,18 +204,26 @@ cursor: pointer;
   
 }
 #sam3>div{
-    border: 1px solid blck;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#sam3>div:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-3px);
 }
 #sam3>div>div{
-    background-color: white;
+    background: transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid rd;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: white;
 }
 .samads1{
     width: 65%;
@@ -196,18 +243,26 @@ cursor: pointer;
     
 }
 #sam4>div{
-    border: 1px solid blck;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#sam4>div:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-3px);
 }
 #sam4>div>div{
-    background-color: white;
+    background: transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid rd;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: white;
 }
 #sam5{
     display: grid;
@@ -221,18 +276,26 @@ cursor: pointer;
     
 }
 #sam5>div{
-    border: 1px solid blck;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#sam5>div:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-3px);
 }
 #sam5>div>div{
-    background-color: white;
+    background: transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid rd;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: white;
 }
 #sam6{
     display: grid;
@@ -246,18 +309,26 @@ cursor: pointer;
     
 }
 #sam6>div{
-    border: 1px solid blck;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#sam6>div:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-3px);
 }
 #sam6>div>div{
-    background-color: white;
+    background: transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid rd;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: white;
 }
 #sam7{
     display: grid;
@@ -272,72 +343,84 @@ cursor: pointer;
     
 }
 #sam7>div{
-    border: 1px solid blck;
+    border: 1px solid rgba(59, 130, 246, 0.2);
     width: 100%;
     cursor: pointer;
     border-radius: 20px;
-    background-color: white;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     margin-bottom: 40px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#sam7>div:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-3px);
 }
 #sam7>div>div{
-    background-color: white;
+    background: transparent;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid rd;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: white;
 }
 .extra{
    display: flex;
    align-self: center;
     justify-content: space-between;
     border-radius: 5px;
-    background-color:white;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     margin-bottom: -20px;
     margin-left: 10px;
    padding: 0px 10px;
    margin-top: 20px;
     margin-right: 10px;
-    border: 1px solid blck;
-    background-image: linear-gradient(to left, yellow,rgb(220, 85, 85));
-    
+    border: 1px solid rgba(59, 130, 246, 0.3);
 }
 .hot{
-    
     font-style: italic;
     color: white;
     padding: 2px;
     background-color: transparent;
-    /* position: relative; */
 }
 .sold{
-   
     font-style: italic;
     font-weight: 900;
-    color: rgb(206, 6, 6);
-    border: 2px solid gren;
+    color: #60a5fa;
+    border: 2px solid #3b82f6;
     background-color: transparent;
-
 }
 .design{
-    background-color: white;
+    background: transparent;
     margin-top: -20px;
     margin-bottom: 20px;
     text-align: left;
     padding-left: 10px;
+    color: white;
+}
+
+.design * {
+    color: white;
 }
 .icon{
     height: 15px;
-    background-color: white;
-    color: rgb(217, 217, 217);
+    background: transparent;
+    color: #9ca3af;
 }
 .plus{
     font-size: 12px;
-    color: rgb(176, 171, 171);
-    background-color: white;
+    color: #9ca3af;
+    background: transparent;
 }
 #but1{
-    border: 1px solid red;
-    background-color: white;
-    color:red;
+    border: 1px solid #3b82f6;
+    background: transparent;
+    color: #60a5fa;
+    transition: all 0.3s ease;
+}
 
+#but1:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
 }

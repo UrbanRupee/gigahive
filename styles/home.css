@@ -5,12 +5,20 @@
     font-family: 'Open Sans', sans-serif;} */
 
 body{
-    /* background: rgb(247,247,247);
-    background: linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(251,228,218,1) 100%); */
-    background: rgb(247,247,247);
-    background: linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(255,223,204,1) 47%, rgba(244,244,244,1) 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
     background-repeat: no-repeat;
+    min-height: 100vh;
+    color: white;
+}
 
+/* Ensure all text is white by default */
+h1, h2, h3, h4, h5, h6, p, span, a, label, li {
+    color: white;
+}
+
+/* Links should be blue on hover */
+a:hover {
+    color: #60a5fa;
 }
 
 #topBox{
@@ -49,13 +57,17 @@ body{
 }
 
 #ranking, #Clearance{
-    
-    background-color: #FDF5F1 ;
-    /* background-color: #f5f3f4; */
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     width: 49%;
-    /* border: 1px solid black; */
     border-radius: 10px;
     padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+#ranking h2, #Clearance h2 {
+    color: white;
 }
 
 .timg{
@@ -81,12 +93,14 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-    background-color: red;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
     padding: 2px 4px;
     border-bottom-right-radius: 10px;
 }
 .timg p{
     text-align: center;
+    color: white;
 }
 
 
@@ -106,13 +120,12 @@ body{
 /* Welcome Card */
 #welcome{
     padding: 30px 15px;
-    /* height: 45%; */
-    background: rgb(247,247,247);
-    background: linear-gradient(180deg, rgba(247,247,247,1) 0%, rgba(251,228,218,1) 100%);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     background-repeat: no-repeat;
     border-radius: 10px;
-
-
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 #welcome >#welcometo{
     margin-bottom: 20px;
@@ -126,7 +139,7 @@ body{
 
 #welcometo >div>h3{
     display: block;
-
+    color: white;
 }
 
 
@@ -136,10 +149,16 @@ body{
     padding: 5px 20px;
     margin-top: 10px;
     border-radius: 20% / 50%;
-    background-color: red;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     border: none;
     font-weight: bolder;
     color: white;
+    transition: all 0.3s ease;
+}
+
+#welcome button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 #policy{
     display: grid;
@@ -147,21 +166,31 @@ body{
     /* column-gap:  */
     grid-column-gap: 10px;
     grid-row-gap: 15px;
+}
 
+#policy p {
+    color: white;
+}
+
+#policy h4 {
+    color: white;
 }
 
 /* User benifits */
 #benifits{
     padding: 30px 15px;
-    /* height: 45%; */
-
-    /* border: 1px solid black; */
-    background-color: #FDF5F1;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 10px;
-
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 #benifits img{
     width: 100%;
+}
+
+#benifits h3 {
+    color: white;
 }
 
 /* ////////////////////////////////////////////////// */
@@ -180,13 +209,18 @@ body{
 
 
 .pCard{
-    /* margin-bottom: 50px; */
-    /* border: 1px solid black; */
-    background-color: red;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     width: 15%;
     text-align: center;
     border-radius: 10px;
     padding-bottom: 5px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.pCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
 }
 .pCard img{
     width: 100%;
@@ -243,13 +277,14 @@ body{
 }
 
 #hobbyCardText > h4{
-
     text-align: center;
     margin-top: 20px;
+    color: white;
 }
 #hobbyCardText > h1{
     text-align: center;
     font-size: 25px;
+    color: white;
 }
 
 /* ////////2nd roow */
@@ -266,10 +301,13 @@ body{
 #flashDeals_{
     width: 80%;
     margin: auto;
-    background-color: white;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 #flash_{
    display: grid;
@@ -295,24 +333,35 @@ body{
 
 #discoverNew{
     width: 49%;
-    /* border: 1px solid; */
     padding: 20px;
-    background-color: white;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 #discoverNew> h4,h3 ,#_2ndBox>h4,#flashDeals>h4{
     display: inline;
-
+    color: white;
 }
 
 #discoverNew >h4 ,#_2ndBox >h4,#flashDeals>h4{
-    background-color: orange;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     box-sizing: border-box;
     padding: 2px 10px;
     border-radius: 10% /50%;
     margin-left: 20px;
     font-size: 14px;
+    color: white;
+}
+
+#discoverNew h3, #_2ndBox h3, #flashDeals_ h3 {
+    color: white;
+}
+
+#flashDeals_ h3, #flashDeals_ h4 {
+    color: white;
 }
 #discoverNew > .timg{
     margin: auto;
@@ -323,10 +372,12 @@ body{
 
 #_2ndBox{
     width: 49%;
-    /* border: 1px solid; */
     padding: 20px;
-    background-color: white;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 #_2ndBox > .timg >div >img{
     height: 120%;
@@ -366,9 +417,11 @@ body{
 
 .card{
     padding: 5px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 5px;
-
+    color: white;
 }
 .card>img{
     width: 100%;
@@ -377,19 +430,23 @@ body{
 .card > p:nth-child(3){
     display: inline;
     text-decoration: line-through;
-    color: grey;
+    color: #9ca3af;
 }
 .card > p:nth-child(4){
     display: inline;
     margin-left: 10px;
+    color: white;
 }
 .card > p:nth-child(2){
     font-size: 16px;
     font-weight: bold;
+    color: white;
 }
 
 .card:hover{
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-3px);
 }
 
 #topPicks{
@@ -403,30 +460,37 @@ body{
     font-size: 30px;
     font-weight: bold;
     margin-right: 30px;
+    color: white;
     animation: neon 5s infinite;
-
 }
 #topPicks >h2+h3{
     display: inline-block;
     font-weight: bold;
     font-size: 20px;
-    background-color: orange;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     padding: 5px 10px;
     margin-bottom: 20px;
     border-radius: 10% / 50%;
+    color: white;
 }
 @keyframes neon{
     0% ,39%,41%,59%,61%,100%{
         text-shadow:
-        red 0 0 12px,
-        #ff3aad 0 0 24px,
-        #ff3aad 0 0 3px;
+        #3b82f6 0 0 12px,
+        #60a5fa 0 0 24px,
+        #60a5fa 0 0 3px;
     }
     40% ,60% {
         text-shadow :none;
     }
 }
 
-#footer_{
+#footer_ {
     width: 100%;
+    margin-top: 50px;
+}
+
+#footer_ #footer {
+    width: 100%;
+    display: block;
 }

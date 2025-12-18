@@ -3,6 +3,7 @@
 var detailobj = JSON.parse(localStorage.getItem('detail'))
 
 let addcartarr = JSON.parse(localStorage.getItem('atc')) || []
+const MAX_QTY_PER_ITEM = 10;
 
 display(detailobj)
 
@@ -63,8 +64,36 @@ function buynowfunc(){
 }
 
 function addcartfunc(el){
-    addcartarr.push(el)
-    localStorage.setItem('atc', JSON.stringify(addcartarr))
+    // Ensure item has a stable key
+    const key = el && (el.id || `${el.prodname || ''}|${el.prodimage || ''}`);
+    if (!key) return;
+
+    const cart = JSON.parse(localStorage.getItem('atc')) || [];
+    let found = false;
+
+    for (let i = 0; i < cart.length; i++) {
+        const itemKey = cart[i] && (cart[i].id || `${cart[i].prodname || ''}|${cart[i].prodimage || ''}`);
+        if (itemKey === key) {
+            const currentQty = parseInt(cart[i].quantity) || 1;
+            if (currentQty >= MAX_QTY_PER_ITEM) {
+                alert("Maximum quantity per item is " + MAX_QTY_PER_ITEM);
+                cart[i].quantity = MAX_QTY_PER_ITEM;
+            } else {
+                cart[i].quantity = Math.min(currentQty + 1, MAX_QTY_PER_ITEM);
+            }
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        const obj = { ...el };
+        obj.quantity = Math.min(parseInt(obj.quantity) || 1, MAX_QTY_PER_ITEM);
+        cart.push(obj);
+    }
+
+    localStorage.setItem('atc', JSON.stringify(cart));
+    addcartarr = cart;
 }
 
 import navbar from "../components/navbar.js"

@@ -2,22 +2,19 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Shopping Cart</title>
 
   <!-- Style CSS -->
   <link rel="stylesheet" href="./styles/cart.css" />
-  <link rel="icon" href="https://www.banggood.in/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./styles/navbar.css" />
+  <link rel="icon" href="./images/private limited.png" type="image/png" />
 </head>
 
 <body>
   <main>
-    <div class="top">
-      <div class="nav">
-        <div class="nav1 bg">
-          <a href="./index.html"><img src="https://css.banggood.in/web/src/img/login/logo.png?v=4bb0729" alt="" /></a>
-        </div>
-      </div>
-    </div>
+    <div id="navbar"></div>
     <!-- end of nav -->
     <div class="container">
       <div class="productcont">
@@ -58,20 +55,24 @@
 
       <div class="footer">
         <div class="footer1">
-          <span> &nbsp;&nbsp;About Banggood.com &nbsp;&nbsp;|</span>
+          <span> &nbsp;&nbsp;About GigaHive &nbsp;&nbsp;|</span>
           <span> &nbsp;&nbsp;Terms And Conditions &nbsp;&nbsp;|</span>
           <span> &nbsp;&nbsp;Privacy Policy &nbsp; &nbsp;|</span>
           <span> &nbsp;&nbsp;Help Center </span>
         </div>
         <div class="footer2">
-          <p>Copyright © 2006-2022 Banggood All Rights Reserved.</p>
+          <p>Copyright © 2024 GigaHive Private Limited. All Rights Reserved.</p>
         </div>
       </div>
       <!-- footor end -->
     </div>
   </main>
 
-  <script src="./scripts/cart.js"></script>
+  <script type="module">
+    import navbar from './components/navbar.js';
+    document.getElementById('navbar').innerHTML = navbar();
+  </script>
+  <script src="./scripts/cart.js?v=qty10"></script>
 </body>
 
 </html>

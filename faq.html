@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - GigaHive Private Limited</title>
+    <link rel="icon" href="./images/private limited.png" type="image/png" />
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/policy-pages.css">
+</head>
+<body>
+    <div id="navbar"></div>
+    
+    <div class="policy-container">
+        <div class="policy-content">
+            <h1>Frequently Asked Questions</h1>
+            <p class="subtitle">Find answers to common questions about GigaHive Private Limited</p>
+            
+            <div class="faq-section">
+                <div class="faq-item">
+                    <h2 class="faq-question">How do I place an order?</h2>
+                    <div class="faq-answer">
+                        <p>Simply browse our products, add items to your cart, and proceed to checkout. You'll need to create an account or sign in, provide shipping details, and complete payment.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">What payment methods do you accept?</h2>
+                    <div class="faq-answer">
+                        <p>We accept all major credit/debit cards, UPI, net banking, and cash on delivery (COD) for eligible orders.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">How long does shipping take?</h2>
+                    <div class="faq-answer">
+                        <p>Standard shipping takes 5-7 business days. Express shipping (2-3 days) and overnight shipping (next day) are also available. Processing time is typically 1-2 business days.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">Do you offer free shipping?</h2>
+                    <div class="faq-answer">
+                        <p>Yes! We offer free standard shipping on orders over ₹2,000.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">Can I track my order?</h2>
+                    <div class="faq-answer">
+                        <p>Yes, once your order ships, you'll receive a tracking number via email. You can track your package through your account or using the tracking link provided.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">What is your return policy?</h2>
+                    <div class="faq-answer">
+                        <p>You can return most items within 7 days of delivery for a full refund or exchange, provided they are unused and in original condition with packaging. See our <a href="./returns.html">Returns Policy</a> for details.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">How do I return an item?</h2>
+                    <div class="faq-answer">
+                        <p>Log into your account, go to "My Orders", select the item to return, and follow the return process. We'll provide a return shipping label and instructions.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">How long does a refund take?</h2>
+                    <div class="faq-answer">
+                        <p>Refunds are processed within 5-7 business days after we receive and inspect the returned item. The refund will appear in your account within 3-5 business days after processing.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">What if I receive a damaged or wrong item?</h2>
+                    <div class="faq-answer">
+                        <p>Contact us immediately within 48 hours of delivery. Provide photos of the issue, and we'll arrange for a replacement or full refund with free return shipping.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">Do you ship internationally?</h2>
+                    <div class="faq-answer">
+                        <p>Currently, we only ship within India. International shipping may be available in the future.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">Can I cancel my order?</h2>
+                    <div class="faq-answer">
+                        <p>You can cancel your order before it ships. Once shipped, you'll need to return the item following our return policy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">How do I create an account?</h2>
+                    <div class="faq-answer">
+                        <p>Click "Sign In" in the top right corner, then select "Create Account". Fill in your details and verify your email address.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">Is my personal information secure?</h2>
+                    <div class="faq-answer">
+                        <p>Yes, we use industry-standard encryption and security measures to protect your personal information. See our <a href="./privacy-policy.html">Privacy Policy</a> for details.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">Do you offer customer support?</h2>
+                    <div class="faq-answer">
+                        <p>Yes! Our customer support team is available Monday-Saturday, 9 AM - 6 PM IST. You can reach us via email at Gigahivepvtltd@gmail.com or phone at 9217816052. Visit our <a href="./contact-us.html">Contact Us</a> page for more options.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-contact">
+                <p>Still have questions? <a href="./contact-us.html">Contact our support team</a> and we'll be happy to help!</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer_"></div>
+    
+    <script type="module">
+        import navbar from './components/navbar.js';
+        import footer from './components/footer.js';
+        
+        document.getElementById('navbar').innerHTML = navbar();
+        document.getElementById('footer_').innerHTML = footer();
+        
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                
+                // Toggle current answer
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

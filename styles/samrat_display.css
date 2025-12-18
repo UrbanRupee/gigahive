@@ -1,16 +1,29 @@
 
         body{
-            background-color: rgb(248,75,73);
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f172a 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* Ensure all text is white by default */
+        h1, h2, h3, h4, h5, h6, p, span, a, label, li {
+            color: white;
+        }
+
+        a:hover {
+            color: #60a5fa;
         }
         #show{
             width: 60%;
             height: 710px;
             margin: auto;
-            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-            background-color: #f7f7f7;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
             padding: 20px;
-            
+            border-radius: 15px;
             cursor: pointer;
+            color: white;
         }
         #show>div{
             margin-top: 100px;
@@ -37,35 +50,36 @@
         }
         #allprice>h5{
             margin-right: 15px;
-            background-color: orangered;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
             padding: 2px;
         }
         #allprice>h1{
             margin-right: 20px;
+            color: white;
         }
         #allprice>h3{
-            color:grey;
+            color: #9ca3af;
             text-decoration: line-through;
             margin-right: 20px;
         }
         #allprice>h4{
-             color:#ff6e26 ;
-             background-color:#fff5f0;
+             color: #60a5fa;
+             background: rgba(59, 130, 246, 0.2);
              padding: 4px;
              border-radius: 5px;
         }
         #low{
-            background-image: linear-gradient(to left, orangered,orange);
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
             padding: 10px 15px;
-            box-shadow: rgb(38, 57, 77) 0px 10px 15px -5px;
+            box-shadow: 0 10px 15px rgba(59, 130, 246, 0.3);
         }
         #newuse{
-            background-color: orangered;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             padding: 5px;
             color: white;
-            border: 2px dotted white;
+            border: 2px dashed rgba(255, 255, 255, 0.5);
         }
         hr{
             margin-top: 20px;
@@ -75,15 +89,28 @@
             gap: 10px;
         }
         #which{
-            color: rgb(172, 165, 165);
+            color: #9ca3af;
         }
         #down{
-            border: 2px solid orangered;
+            border: 2px solid #3b82f6;
             padding: 5px;
             border-radius: 5px;
+            color: #60a5fa;
         }
         #qty{
-            color: grey;
+            color: white;
+        }
+        #ship {
+            color: white;
+        }
+        #con {
+            color: white;
+        }
+        #stock {
+            color: #4caf50;
+        }
+        #hrs {
+            color: #9ca3af;
         }
         #fullqty{
             margin-top: -20px;
@@ -96,25 +123,30 @@
             border-right: none;
             cursor: pointer;
         }
+        #sub{
+            color: white;
+        }
         #sub:hover{
             color: white;
-            background-color: orangered;
-
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         }
         #quan{
-            border: 1px solid grey;
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 2px 10px;
             border-right: none;
+            color: white;
+            background: rgba(59, 130, 246, 0.1);
         }
         #plus{
-            border: 1px solid grey;
+            border: 1px solid rgba(59, 130, 246, 0.3);
             padding: 2px 10px;
             margin-right: 10px;
             cursor: pointer;
+            color: white;
         }
         #plus:hover{
             color: white;
-            background-color: orangered;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         }
         #stock{
             margin-right: 5px;
@@ -125,10 +157,28 @@
         button{
             padding: 10px 50px;
             cursor: pointer; 
-            box-shadow: rgb(38, 57, 77) 0px 10px 15px -5px;      
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            color: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
         button:hover{
-          color: orangered;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+        #but1 {
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #60a5fa;
+        }
+        #but1:hover {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+        #but2 {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border: none;
         }
         #but1{
             margin-right: 10px;

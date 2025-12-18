@@ -107,10 +107,34 @@
     
     let cart=JSON.parse(localStorage.getItem("atc")) || [];
    function addtocart(data){
-    
-    cart.push(data)
-    localStorage.setItem("atc",JSON.stringify(cart))
-    alert("Congratulation You item is added to cart")
+    const MAX_QTY_PER_ITEM = 10;
+
+    // Ensure a stable id exists
+    if (!data.id) {
+        data.id = "item_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+    }
+
+    // Ensure quantity is set from UI, clamped to max
+    const uiQty = parseInt(document.querySelector("#quan")?.innerText) || parseInt(data.quantity) || 1;
+    const addQty = Math.min(uiQty, MAX_QTY_PER_ITEM);
+
+    let found = false;
+    for (let i = 0; i < cart.length; i++) {
+        if (cart[i] && cart[i].id === data.id) {
+            const currentQty = parseInt(cart[i].quantity) || 1;
+            cart[i].quantity = Math.min(currentQty + addQty, MAX_QTY_PER_ITEM);
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        data.quantity = addQty;
+        cart.push(data);
+    }
+
+    localStorage.setItem("atc",JSON.stringify(cart));
+    alert("Item added to cart (max " + MAX_QTY_PER_ITEM + " per item).")
    }
    let i =  0;
    let alltotal = data.quantity
@@ -132,10 +156,13 @@
   
    function additem(){
     //console.log("click me")
-
+    const MAX_QTY_PER_ITEM = 10;
+    if (i >= MAX_QTY_PER_ITEM) {
+        alert("Maximum quantity per item is " + MAX_QTY_PER_ITEM);
+        i = MAX_QTY_PER_ITEM;
+    } else {
     i++;
-    
-        
+    }
         document.querySelector("#quan").innerText = i
         data.quantity = i
         // data.prodprice = allprices * i

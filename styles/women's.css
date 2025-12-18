@@ -1,7 +1,17 @@
 body{
   font-family: OpenSans,Arial;
-  background-color: rgb(255,255,255);
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f172a 100%);
+  color: white;
+  min-height: 100vh;
+}
 
+/* Ensure all text is white by default */
+h1, h2, h3, h4, h5, h6, p, span, a, label, li {
+    color: white;
+}
+
+a:hover {
+    color: #60a5fa;
 }
 #jewelryTop {
   display: flex;
@@ -43,38 +53,40 @@ body{
 #jewelryFooter {
   margin-top: 14vw;
   height: 50vw;
-  background-color: rgb(247,247,247);
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
 }
 #jewelryTopLeft > h3 {
   font-size: 0.95rem;
   margin-left: 1.8vw;
-  opacity: 0.7;
+  opacity: 0.9;
   margin-bottom: -0.5vw;
+  color: white;
 }
 #jewelryTopLeft > p {
   margin-top: 0.7vw;
-  color: #666;
+  color: #9ca3af;
   font-size: 0.92rem;
   margin-left: 2.3vw;
   margin-bottom: 0.6vw;
 }
 #jewelryTopLeft > h4 {
   font-size: 0.90rem;
- 
-  opacity: 0.7;
+  opacity: 0.9;
   margin-left: 2.8vw;
   margin-bottom: 0.35vw;
+  color: white;
 }
 #jewelryTopLeft > a {
   font-size: 0.87rem;
-  color: #666;;
+  color: #9ca3af;
   display: block;
   margin-left: 3.6vw;
   margin-bottom: 0.35vw;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 #jewelryTopLeft > a:hover {
-  color: rgb(255,110,38);
+  color: #60a5fa;
   text-decoration: underline;
 }
 #jewelryTopRightBottom > div {
@@ -99,32 +111,27 @@ body{
   z-index: -1;
 }
 #jewelryTopRightBottom > div > h2 {
-  color: rgb(255, 71, 51);
+  color: #60a5fa;
   font-size: 0.95rem;
   margin-bottom: 0.2vw;
 }
  #jewelryTopRightBottom > div > p>span{ 
   text-decoration-line:0.1vw;
-  text-decoration-color: #666;
-  color: #666;;
+  text-decoration-color: #9ca3af;
+  color: #9ca3af;
   font-size: 0.95rem;
-
-
-
   text-decoration: line-through;
-  
 } 
 #jewelryTopRightBottom > div > a {
   margin-top: 0.2vw;
   display: block;
-  color: #666;
+  color: white;
   font-size: 0.95rem;
- 
-
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 #jewelryTopRightBottom > div > a:hover {
-  color: rgb(255,110,38);
+  color: #60a5fa;
   text-decoration: underline;
 }
 #jewelryTopRightTop>p{
@@ -132,17 +139,22 @@ display: inline-block;
 }
 #jewelryTopRightTop>h4{
   display: inline-block;
-  color: #666;
+  color: white;
   font-size: 0.92rem;
   }
 #jewelryTopRightTop>a{
-  color: #666;
+  color: white;
   font-size: 0.92rem;
   text-decoration: none;
+  transition: color 0.3s ease;
   }
   #jewelryTopRightTop>a:hover{
+    color: #60a5fa;
     text-decoration:underline;
   }
+#jewelryTopRightTop>p{
+  color: white;
+}
   #jewelryTopRightTop>input{
       text-align: center;
 margin-top: 1vw;
@@ -158,10 +170,17 @@ margin-top: 1vw;
 #jewelryTopRightTop>button{
   padding: 0.3vw;
   margin-top: 1vw;
-  background-color: rgb(255,110,38);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
   border-radius: 0.4vw;
   border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#jewelryTopRightTop>button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
 }
 #jewelryFooter1{
   margin-top: 100px solid rgb(167, 167, 167);

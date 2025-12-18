@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Callback - GigaHive Private Limited</title>
+    <link rel="icon" href="./images/private limited.png" type="image/png" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f172a 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .callback-container {
+            background: rgba(26, 26, 46, 0.9);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        h1 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+        .status {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .success {
+            color: #4ade80;
+        }
+        .failed {
+            color: #f87171;
+        }
+    </style>
+</head>
+<body>
+    <div class="callback-container">
+        <h1>Payment Callback Handler</h1>
+        <p>Processing payment status...</p>
+        <div id="status"></div>
+    </div>
+    
+    <script>
+        // This page handles POST callbacks from Payin API
+        // In a production environment, this should be a server-side endpoint
+        
+        // For client-side handling (demo purposes)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters (if callback data is passed via GET)
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const orderId = urlParams.get('client_txn_id') || urlParams.get('orderid');
+            const utr = urlParams.get('utr');
+            const amount = urlParams.get('amount');
+            
+            const statusDiv = document.getElementById('status');
+            
+            if (status === 'success') {
+                statusDiv.innerHTML = `
+                    <div class="status success">Payment Successful!</div>
+                    <p>Order ID: ${orderId || 'N/A'}</p>
+                    <p>UTR: ${utr || 'N/A'}</p>
+                    <p>Amount: ₹${amount || 'N/A'}</p>
+                    <p>Your order has been confirmed.</p>
+                `;
+                
+                // Clear cart
+                localStorage.removeItem('atc');
+                localStorage.removeItem('paymentUrl');
+                localStorage.removeItem('orderId');
+                
+                // Redirect to success page after 3 seconds
+                setTimeout(() => {
+                    window.location.href = './payment-success.html';
+                }, 3000);
+            } else if (status === 'failed') {
+                statusDiv.innerHTML = `
+                    <div class="status failed">Payment Failed</div>
+                    <p>Order ID: ${orderId || 'N/A'}</p>
+                    <p>Please try again or contact support.</p>
+                `;
+                
+                // Redirect to payment page after 3 seconds
+                setTimeout(() => {
+                    window.location.href = './payment.html';
+                }, 3000);
+            } else {
+                statusDiv.innerHTML = `
+                    <p>Waiting for payment status...</p>
+                    <p>If you completed the payment, please wait for confirmation.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
+

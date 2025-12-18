@@ -1,80 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,300&family=Ubuntu:wght@500&display=swap"
-    rel="stylesheet" />
-  <title>Payment</title>
-  <link rel="icon" href="https://www.banggood.in/favicon.ico" type="image/x-icon" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - GigaHive Private Limited</title>
+  <link rel="icon" href="./images/private limited.png" type="image/png" />
   <link rel="stylesheet" href="./styles/payment.css">
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/footer.css">
 </head>
-
 <body>
-  <div class="top">
-    <div class="nav">
-      <div class="nav1 bg">
-        <a href="./index.html"><img src="https://css.banggood.in/web/src/img/login/logo.png?v=4bb0729" alt="" /></a>
+  <div id="navbar"></div>
+    
+    <div class="payment-container">
+        <div class="payment-content">
+            <div id="payment-status">
+                <div class="payment-loader">
+                    <div class="spinner"></div>
+                    <h2>Redirecting to Payment...</h2>
+                    <p>Please wait while we redirect you to complete your payment.</p>
       </div>
-    </div>
-  </div>
-  <!-- end of nav -->
-  <form id="form">
-    <h1>Payment page</h1>
-    <div id="select">
-      <div>
-        <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">UPI</label><br>
-      </div>
-      <div>
-        <input type="radio" id="css" name="fav_language" value="CSS">
-        <label for="css">CREDIT CARD / DEBIT CARD</label><br>
-      </div>
-      <div>
-        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-        <label for="javascript">COD</label>
+                
+                <div class="payment-success" style="display: none;">
+                    <div class="success-icon">✓</div>
+                    <h2>Payment Successful!</h2>
+                    <p>Your order has been confirmed. You will receive an email confirmation shortly.</p>
+                    <button class="btn-primary" onclick="window.location.href='./index.html'">Continue Shopping</button>
       </div>
 
+                <div class="payment-failed" style="display: none;">
+                    <div class="error-icon">✗</div>
+                    <h2>Payment Failed</h2>
+                    <p id="error-message">There was an issue processing your payment. Please try again.</p>
+                    <button class="btn-primary" onclick="window.location.href='./checkout.html'">Try Again</button>
+                    <button class="btn-secondary" onclick="window.location.href='./cart.html'">Return to Cart</button>
+                </div>
     </div>
-  </form>
 
-  <div id="pay">
-    <div id="upi">
-      <h3>Enter Your Upi</h3>
-      <input type="text" placeholder="eg:908xxxxx@ybl">
-    </div>
-    <div id="card">
-      <h3>Card Details</h3>
-      <input id="cardNumber" type="number" placeholder="Card Number" />
-      <input id="cvv" type="cvv" placeholder="CVV hint" />
-      <input id="expiry" type="date" placeholder="Expiry Month hint : 01/26" />
-      <input id="name" type="text" placeholder="Enter Your Name" />
-    </div>
-    <div id="cod"></div>
-  </div>
-  <button id="order">Confirm Order</button>
-  <!-- Footer start -->
-
-  <div class="footer">
-    <div class="footer1">
-      <span> &nbsp;&nbsp;About Banggood.com &nbsp;&nbsp;|</span>
-      <span> &nbsp;&nbsp;Terms And Conditions &nbsp;&nbsp;|</span>
-      <span> &nbsp;&nbsp;Privacy Policy &nbsp; &nbsp;|</span>
-      <span> &nbsp;&nbsp;Help Center </span>
-    </div>
-    <div class="footer2">
-      <p>Copyright © 2006-2022 Banggood All Rights Reserved.</p>
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="order-details">
+                    <p><strong>Order ID:</strong> <span id="order-id">-</span></p>
+                    <p><strong>Amount:</strong> <span id="order-amount">-</span></p>
+                    <p><strong>Payment Method:</strong> UPI</p>
     </div>
   </div>
-  <!-- footor end -->
+    </div>
+    </div>
+
+    <div id="footer_"></div>
+
+<script type="module">
+  import navbar from './components/navbar.js';
+        import footer from './components/footer.js';
+        import PAYIN_CONFIG from './scripts/payin-config.js';
+        
+  document.getElementById('navbar').innerHTML = navbar();
+        document.getElementById('footer_').innerHTML = footer();
+        
+        // Payment processing logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentUrl = localStorage.getItem('paymentUrl');
+            const orderId = localStorage.getItem('orderId');
+            const orderData = JSON.parse(localStorage.getItem('currentOrder') || '{}');
+            const paymentResponse = JSON.parse(localStorage.getItem('paymentResponse') || '{}');
+            
+            console.log('Payment page loaded');
+            console.log('Payment URL:', paymentUrl);
+            console.log('Payment Response:', paymentResponse);
+            
+            // Display order details
+            if (orderId) {
+                document.getElementById('order-id').textContent = orderId;
+            }
+            if (orderData.amount) {
+                document.getElementById('order-amount').textContent = '\u20B9' + parseFloat(orderData.amount).toFixed(2);
+            }
+            
+            // Function to display payment link
+            function displayPaymentLink(url) {
+                // Hide loader
+                document.querySelector('.payment-loader').style.display = 'none';
+                
+                const paymentLinkContainer = document.createElement('div');
+                paymentLinkContainer.id = 'payment-link-container';
+                paymentLinkContainer.style.marginTop = '20px';
+                paymentLinkContainer.style.padding = '25px';
+                paymentLinkContainer.style.background = 'rgba(15, 23, 42, 0.8)';
+                paymentLinkContainer.style.borderRadius = '8px';
+                paymentLinkContainer.style.border = '2px solid rgba(59, 130, 246, 0.4)';
+                paymentLinkContainer.innerHTML = `
+                    <h3 style="color: #60a5fa; margin-bottom: 15px; font-size: 22px;">Payment Link Generated</h3>
+                    <p style="margin-bottom: 20px; color: #e5e7eb; font-size: 16px;">Click the button below to complete your payment:</p>
+                    <a href="${url}" target="_blank" id="pay-now-btn" style="display: inline-block; padding: 14px 40px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; transition: transform 0.2s ease; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">Pay Now</a>
+                    <div style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.4); border-radius: 6px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                        <p style="font-size: 12px; color: #9ca3af; margin-bottom: 8px; font-weight: 600;">Payment Link:</p>
+                        <p style="font-size: 11px; color: #60a5fa; word-break: break-all; font-family: monospace; line-height: 1.6;">${url}</p>
+                        <button onclick="navigator.clipboard.writeText('${url}'); alert('Link copied!');" style="margin-top: 10px; padding: 6px 15px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 4px; cursor: pointer; font-size: 12px;">Copy Link</button>
+                    </div>
+                `;
+                document.querySelector('.order-summary').appendChild(paymentLinkContainer);
+                
+                // Auto-open payment link in new tab after 2 seconds
+                setTimeout(() => {
+                    window.open(url, '_blank');
+                }, 2000);
+            }
+            
+            // Just paste whatever URL comes from the server response - no logic, no construction
+            console.log('Payment URL from localStorage:', paymentUrl);
+            console.log('Full payment response:', JSON.stringify(paymentResponse, null, 2));
+            
+            // Get URL directly from response - just paste result.url
+            let finalUrl = paymentResponse.url;
+            
+            console.log('URL from API response (paymentResponse.url):', finalUrl);
+            console.log('Type:', typeof finalUrl);
+            
+            if (finalUrl && finalUrl !== null && finalUrl !== 'null' && String(finalUrl).trim() !== '') {
+                displayPaymentLink(String(finalUrl));
+                
+                // Check payment status periodically
+                if (orderId) {
+                    checkPaymentStatus(orderId);
+                }
+            } else {
+                // Show the full response on page for debugging
+                console.error('No payment URL found. Full response:', paymentResponse);
+                console.error('Response keys:', Object.keys(paymentResponse));
+                
+                // Display response data on page
+                const debugContainer = document.createElement('div');
+                debugContainer.style.marginTop = '20px';
+                debugContainer.style.padding = '20px';
+                debugContainer.style.background = 'rgba(239, 68, 68, 0.1)';
+                debugContainer.style.border = '1px solid rgba(239, 68, 68, 0.3)';
+                debugContainer.style.borderRadius = '8px';
+                debugContainer.innerHTML = `
+                    <h4 style="color: #f87171; margin-bottom: 10px;">API Response (for debugging):</h4>
+                    <pre style="color: #e5e7eb; font-size: 11px; overflow-x: auto; white-space: pre-wrap;">${JSON.stringify(paymentResponse, null, 2)}</pre>
+                `;
+                document.querySelector('.order-summary').appendChild(debugContainer);
+                
+                showPaymentFailed('Payment URL not found in response. Check the debug info above for API response details.');
+            }
+        });
+        
+        // Check payment status
+        async function checkPaymentStatus(orderId) {
+            if (!orderId) return;
+            
+            const maxAttempts = 30; // Check for 5 minutes (30 * 10 seconds)
+            let attempts = 0;
+            
+            const statusInterval = setInterval(async () => {
+                attempts++;
+                
+                try {
+                    const response = await fetch(`${PAYIN_CONFIG.API_BASE_URL}/checkstatus`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            userid: PAYIN_CONFIG.USER_ID,
+                            orderid: orderId
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.status === 'success') {
+                        clearInterval(statusInterval);
+                        showPaymentSuccess();
+                        // Clear payment data
+                        localStorage.removeItem('paymentUrl');
+                        localStorage.removeItem('orderId');
+                    } else if (result.status === 'failed') {
+                        clearInterval(statusInterval);
+                        showPaymentFailed(result.message || 'Payment failed');
+                        localStorage.removeItem('paymentUrl');
+                        localStorage.removeItem('orderId');
+                    }
+                } catch (error) {
+                    console.error('Status check error:', error);
+                }
+                
+                // Stop checking after max attempts
+                if (attempts >= maxAttempts) {
+                    clearInterval(statusInterval);
+                    // Don't show error, let callback handle it
+                }
+            }, 10000); // Check every 10 seconds
+        }
+        
+        function showPaymentSuccess() {
+            document.querySelector('.payment-loader').style.display = 'none';
+            document.querySelector('.payment-failed').style.display = 'none';
+            document.querySelector('.payment-success').style.display = 'block';
+        }
+        
+        function showPaymentFailed(message) {
+            document.querySelector('.payment-loader').style.display = 'none';
+            document.querySelector('.payment-success').style.display = 'none';
+            document.querySelector('.payment-failed').style.display = 'block';
+            if (message) {
+                document.getElementById('error-message').textContent = message;
+            }
+        }
+</script>
 </body>
-
-
 </html>
-
-<script src="./scripts/payment.js"></script>

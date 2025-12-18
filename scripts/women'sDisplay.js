@@ -42,20 +42,6 @@ function totaldata(data){
     
     let hr = document.createElement("hr")
     
-    let con = document.createElement("div")
-    con.id = "con"
-    let ship =document.createElement("p")
-    ship.id ="ship"
-    ship.innerText = "Ship From: "
-    let which = document.createElement("p")
-    which.id = "which" 
-    which.innerText = "CN"
-    con.append(ship,which)
-    
-    let down = document.createElement("span")
-    down.id = "down"
-    down.innerText = "CN"
-    
     
 
     let qty = document.createElement("p")
@@ -100,32 +86,51 @@ function totaldata(data){
      })
      totalbuts.append(but1,but2)
 
-    subdiv.append(name,lowest,totalprice,newuse,hr,con,down,qty,fullqty,totalbuts)
+    subdiv.append(name,lowest,totalprice,newuse,hr,qty,fullqty,totalbuts)
     div.append(img,subdiv)
     document.querySelector("#show").append(div)
 }
 
 let cart=JSON.parse(localStorage.getItem("atc")) || [];
 function addtocart(data){
-     let id=data.id;
-   let isExist=false;
-   for(let i=0;i<cart.length;i++){
-      if(id==cart[i].id){
-        isExist=true;
-         break;
-      }
-      
-   };
-if(isExist){
-   
-    alert("already exists")
-}else{
-    cart.push(data)
-localStorage.setItem("atc",JSON.stringify(cart))
-alert("Congratulation You item is added to cart")
-}
-
-
+    const MAX_QTY_PER_ITEM = 10;
+    // Generate unique ID if not present
+    if(!data.id) {
+        data.id = "item_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+    }
+    
+    let id = data.id;
+    let isExist = false;
+    
+    // Check if item already exists in cart
+    for(let i = 0; i < cart.length; i++){
+        if(id == cart[i].id){
+            // Update quantity if item exists
+            const currentQty = parseInt(cart[i].quantity) || 1;
+            const addQty = parseInt(data.quantity) || 1;
+            const nextQty = Math.min(currentQty + addQty, MAX_QTY_PER_ITEM);
+            cart[i].quantity = nextQty;
+            isExist = true;
+            break;
+        }
+    }
+    
+    if(isExist){
+        localStorage.setItem("atc", JSON.stringify(cart));
+        alert("Item already in cart! Quantity updated (max " + MAX_QTY_PER_ITEM + ").")
+    } else {
+        // Ensure quantity is set
+        if(!data.quantity) {
+            data.quantity = parseInt(document.querySelector("#quan").innerText) || 1;
+        }
+        data.quantity = Math.min(parseInt(data.quantity) || 1, MAX_QTY_PER_ITEM);
+        cart.push(data);
+        localStorage.setItem("atc", JSON.stringify(cart));
+        alert("Congratulations! Your item has been added to cart");
+        
+        // Update cart count in navbar
+        document.querySelector(".number>h1").innerText = cart.length;
+    }
 }
 let i =  1;
 let alltotal = data.quantity
@@ -149,8 +154,13 @@ else{
 
 function additem(){
 //console.log("click me")
-
+    const MAX_QTY_PER_ITEM = 10;
+    if (i >= MAX_QTY_PER_ITEM) {
+        alert("Maximum quantity per item is " + MAX_QTY_PER_ITEM);
+        i = MAX_QTY_PER_ITEM;
+    } else {
 i++;
+    }
 
     console.log(i)
     document.querySelector("#quan").innerText = i

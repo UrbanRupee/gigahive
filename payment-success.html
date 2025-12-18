@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success - GigaHive Private Limited</title>
+    <link rel="icon" href="./images/private limited.png" type="image/png" />
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0f172a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .success-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(26, 26, 46, 0.9);
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 60px;
+            color: white;
+        }
+        h1 {
+            color: #60a5fa;
+            margin-bottom: 20px;
+        }
+        .order-info {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .order-info p {
+            margin: 10px 0;
+            color: #e5e7eb;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar"></div>
+    
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h1>Payment Successful!</h1>
+        <p>Thank you for your purchase. Your order has been confirmed.</p>
+        
+        <div class="order-info">
+            <h3>Order Details</h3>
+            <p><strong>Order ID:</strong> <span id="order-id">-</span></p>
+            <p><strong>Amount Paid:</strong> <span id="order-amount">-</span></p>
+            <p><strong>Status:</strong> <span style="color: #4ade80;">Confirmed</span></p>
+        </div>
+        
+        <p>You will receive an email confirmation shortly with your order details.</p>
+        
+        <div>
+            <button class="btn-primary" onclick="window.location.href='./index.html'">Continue Shopping</button>
+            <button class="btn-primary" onclick="window.location.href='./cart.html'">View Orders</button>
+        </div>
+    </div>
+    
+    <div id="footer_"></div>
+    
+    <script type="module">
+        import navbar from './components/navbar.js';
+        import footer from './components/footer.js';
+        
+        document.getElementById('navbar').innerHTML = navbar();
+        document.getElementById('footer_').innerHTML = footer();
+        
+        // Display order details
+        const orderData = JSON.parse(localStorage.getItem('currentOrder') || '{}');
+        if (orderData.orderId) {
+            document.getElementById('order-id').textContent = orderData.orderId;
+        }
+        if (orderData.amount) {
+            document.getElementById('order-amount').textContent = '\u20B9' + parseFloat(orderData.amount).toFixed(2);
+        }
+        
+        // Clear order data after displaying
+        setTimeout(() => {
+            localStorage.removeItem('currentOrder');
+        }, 5000);
+    </script>
+</body>
+</html>
+
