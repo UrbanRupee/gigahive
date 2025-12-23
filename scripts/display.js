@@ -87,8 +87,19 @@ function addcartfunc(el){
     }
 
     if (!found) {
-        const obj = { ...el };
-        obj.quantity = Math.min(parseInt(obj.quantity) || 1, MAX_QTY_PER_ITEM);
+        // Create a clean copy with properly formatted price
+        const obj = {
+            id: el.id,
+            prodname: el.prodname,
+            prodimage: el.prodimage,
+            prodprice: typeof el.prodprice === 'string' 
+                ? parseFloat(el.prodprice.replace(/[\u20B9₹$,]/g, '')) || 0
+                : parseFloat(el.prodprice) || 0,
+            prodorg_prc: el.prodorg_prc,
+            proddisc: el.proddisc,
+            striked: el.striked,
+            quantity: Math.min(parseInt(el.quantity) || 1, MAX_QTY_PER_ITEM)
+        };
         cart.push(obj);
     }
 

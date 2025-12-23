@@ -119,12 +119,23 @@ function addtocart(data){
         localStorage.setItem("atc", JSON.stringify(cart));
         alert("Item already in cart! Quantity updated (max " + MAX_QTY_PER_ITEM + ").")
     } else {
-        // Ensure quantity is set
-        if(!data.quantity) {
-            data.quantity = parseInt(document.querySelector("#quan").innerText) || 1;
-        }
-        data.quantity = Math.min(parseInt(data.quantity) || 1, MAX_QTY_PER_ITEM);
-        cart.push(data);
+        // Create a clean copy of the product data
+        const cartItem = {
+            id: data.id,
+            prodname: data.prodname,
+            prodimage: data.prodimage,
+            prodprice: typeof data.prodprice === 'string' 
+                ? parseFloat(data.prodprice.replace(/[\u20B9₹$,]/g, '')) || 0
+                : parseFloat(data.prodprice) || 0,
+            prodorg_prc: data.prodorg_prc,
+            proddisc: data.proddisc,
+            quantity: parseInt(document.querySelector("#quan")?.innerText) || 1
+        };
+        
+        // Ensure quantity is within limits
+        cartItem.quantity = Math.min(cartItem.quantity, MAX_QTY_PER_ITEM);
+        
+        cart.push(cartItem);
         localStorage.setItem("atc", JSON.stringify(cart));
         alert("Congratulations! Your item has been added to cart");
         
