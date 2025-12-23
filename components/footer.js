@@ -34,7 +34,7 @@ function footer(){
                 <div class="footer-column">
                     <h4>Get to Know Us</h4>
                     <ul>
-                        <li><a href="#">About GigaHive</a></li>
+                        <li><a href="./about-us.html">About GigaHive</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Press Releases</a></li>
                         <li><a href="#">GigaHive Science</a></li>
