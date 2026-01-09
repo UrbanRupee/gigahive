@@ -9,7 +9,7 @@ document.querySelector("#navbar").innerHTML = navbar()
 let samdata1 = [
     {
      prodimage: "https://imgaz3.staticbg.com/thumb/view/oaupload/banggood/images/DB/98/3dea1df3-a5c7-4ab3-8e55-b4ac5b3a2fb4.JPG.webp",
-     prodname: "BLUEARROW D03013 Digital Ultra-Micro Presion Servo For Blade 130X Helicopter",
+     prodname: "BLUEARROW D03013 Digital Ultra-Micro Precision Servo For Blade 130X Helicopter",
      prodprice: 794.54,
      prodorg_prc: "₹1,908.02",
      proddisc: "-58%",
@@ -52,7 +52,7 @@ let samdata2 = [
     },
     {
         prodimage:"https://imgaz3.staticbg.com/thumb/gallery/oaupload/banggood/images/84/21/b8a94c40-4777-46cc-a354-1244160e3046.jpg.webp",
-        prodname: "Xiaomi Mijia 1S 4K Cinema  150 inch ALPD 4K 3D BT 4.0 MIUI TV Xiaomi Projector",
+        prodname: "Xiaomi Mijia 1S 4K Cinema 150 inch ALPD 4K 3D BT 4.0 MIUI TV Xiaomi Projector",
         prodprice: 132025.40,
         prodorg_prc: "₹151,113.52",
         proddisc: "-13%",
@@ -76,7 +76,7 @@ let samdata2 = [
     },
     {
         prodimage:"https://imgaz.staticbg.com/thumb/gallery/oaupload/banggood/images/6A/F2/2c94c9aa-e7f1-4f1c-a638-51fbbd59fe9e.jpg.webp",
-        prodname: "Xiaomi Mi 4K UHD Android TV 9.0 ALPD 3.0 1300lm Iaser Smart TV Global Version",
+        prodname: "Xiaomi Mi 4K UHD Android TV 9.0 ALPD 3.0 1300lm Laser Smart TV Global Version",
         prodprice: 136797.43 ,
         prodorg_prc: "₹225,875.34",
         proddisc: "-39%",
@@ -228,7 +228,7 @@ let samdata4 = [
     },
     {
         prodimage:"https://imgaz1.staticbg.com/thumb/large/oaupload/banggood/images/C4/77/753de850-c84c-4870-9f51-98876b59ba7e.jpg.webp",
-        prodname: "Gaming Chair Design Padded Armrest Restractable for Home Office - Black",
+        prodname: "Gaming Chair Design Padded Armrest Retractable for Home Office - Black",
         prodprice: 15905.97,
         prodorg_prc: "₹17500.45",
         proddisc: "-11%",

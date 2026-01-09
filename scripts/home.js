@@ -86,7 +86,7 @@ let Pdata =[
     },
     {
         prodimage:"https://imgaz3.staticbg.com/thumb/gallery/oaupload/banggood/images/84/21/b8a94c40-4777-46cc-a354-1244160e3046.jpg.webp",
-        prodname: "Version]Xiaomi Mijia 1S 4K Cinema  150 inch ALPD 4K 3D BT 4.0 MIUI TV Xiaomi Projector",
+        prodname: "Xiaomi Mijia 1S 4K Cinema 150 inch ALPD 4K 3D BT 4.0 MIUI TV Xiaomi Projector",
         prodprice: 132025.40,
         prodorg_prc: "₹151,113.52",
         proddisc: "-13%",
@@ -110,7 +110,7 @@ let Pdata =[
     },
     {
         prodimage:"https://imgaz.staticbg.com/thumb/gallery/oaupload/banggood/images/6A/F2/2c94c9aa-e7f1-4f1c-a638-51fbbd59fe9e.jpg.webp",
-        prodname: "Xiaomi Mi 4K UHD Android TV 9.0 ALPD 3.0 1300lm Iaser Smart TV Global Version",
+        prodname: "Xiaomi Mi 4K UHD Android TV 9.0 ALPD 3.0 1300lm Laser Smart TV Global Version",
         prodprice: 136797.43 ,
         prodorg_prc: "₹225,875.34",
         proddisc: "-39%",
@@ -286,7 +286,7 @@ let Pdata =[
     },
     {
         prodimage:"https://imgaz3.staticbg.com/thumb/gallery/oaupload/banggood/images/84/21/b8a94c40-4777-46cc-a354-1244160e3046.jpg.webp",
-        prodname: "Version]Xiaomi Mijia 1S 4K Cinema  150 inch ALPD 4K 3D BT 4.0 MIUI TV Xiaomi Projector",
+        prodname: "Xiaomi Mijia 1S 4K Cinema 150 inch ALPD 4K 3D BT 4.0 MIUI TV Xiaomi Projector",
         prodprice: 132025.40,
         prodorg_prc: "₹151,113.52",
         proddisc: "-13%",
@@ -310,7 +310,7 @@ let Pdata =[
     },
     {
         prodimage:"https://imgaz.staticbg.com/thumb/gallery/oaupload/banggood/images/6A/F2/2c94c9aa-e7f1-4f1c-a638-51fbbd59fe9e.jpg.webp",
-        prodname: "Xiaomi Mi 4K UHD Android TV 9.0 ALPD 3.0 1300lm Iaser Smart TV Global Version",
+        prodname: "Xiaomi Mi 4K UHD Android TV 9.0 ALPD 3.0 1300lm Laser Smart TV Global Version",
         prodprice: 136797.43 ,
         prodorg_prc: "₹225,875.34",
         proddisc: "-39%",
